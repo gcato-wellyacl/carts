@@ -1,9 +1,9 @@
-export GITHUB_USER=$(cat creds.json | jq -r '.githubUserName')
-export GITHUB_EMAIL=$(cat creds.json | jq -r '.githubUserEmail')
-export GITHUB_TOKEN=$(cat creds.json | jq -r '.githubPersonalAccessToken')
-export DT_TENANT=$(cat creds.json | jq -r '.dynatraceTenant')
-export DT_API_TOKEN=$(cat creds.json | jq -r '.dynatraceApiToken')
-export JENKINS_PASSWORD=$(cat creds.json | jq -r '.jenkinsPassword')
+export GITHUB_USER=$(cat ~/creds.json | jq -r '.githubUserName')
+export GITHUB_EMAIL=$(cat ~/creds.json | jq -r '.githubUserEmail')
+export GITHUB_TOKEN=$(cat ~/creds.json | jq -r '.githubPersonalAccessToken')
+export DT_TENANT=$(cat ~/creds.json | jq -r '.dynatraceTenant')
+export DT_API_TOKEN=$(cat ~/creds.json | jq -r '.dynatraceApiToken')
+export JENKINS_PASSWORD=$(cat ~/creds.json | jq -r '.jenkinsPassword')
 
 export JENKINS_URL=$(kubectl -n cicd get svc jenkins -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
 if [ "$JENKINS_URL" == "" ]; then
